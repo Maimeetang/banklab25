@@ -63,4 +63,23 @@ void List::append(int d){
 	size++;
 }
 
-//Write List::remove() here
+void List::remove(int idx){
+	size--;
+	Node *current = root;
+	if(idx == 0){
+		root = current->next;
+		delete current;
+	}else{
+		Node *before = root;
+		for(int i=0; i<idx; i++){
+		if(i==0){
+			current = current->next;
+		}else{
+			current = current->next;
+			before = before->next;
+		}
+	}
+	before->next = current->next;
+	delete current;
+	}
+}
